@@ -1,10 +1,10 @@
 package com.example.base1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,11 +17,20 @@ class MainActivity : AppCompatActivity() {
         gridView1.adapter = adaptador
         gridView1.onItemClickListener =
             AdapterView.OnItemClickListener { parent: AdapterView<*>, v: View, position: Int, id: Long ->
-                Toast.makeText(
-                    this,
-                    "Posicion de la Imagen: $position",
-                    Toast.LENGTH_SHORT
-                ).show()
+
+                if (position == 0) {
+                    val intent = Intent(this, TiendaActivity::class.java)
+                    startActivity(intent)
+                } else if(position == 1){
+                    val intent = Intent(this, CategoriasActivity::class.java)
+                    startActivity(intent)
+                } else if(position == 2){
+                    val intent = Intent(this, CarritoActivity::class.java)
+                    startActivity(intent)
+                } else{
+                    val intent = Intent(this, AboutActivity::class.java)
+                    startActivity(intent)
+                }
             }
     }
 }
