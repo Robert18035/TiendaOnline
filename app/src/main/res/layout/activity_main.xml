@@ -39,4 +39,5 @@
         android:verticalSpacing="10dp"
         android:layout_below="@id/nombreApp"
         />
+
 </RelativeLayout>
