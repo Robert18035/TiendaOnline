@@ -16,7 +16,7 @@ import com.firebase.ui.database.FirebaseListOptions
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.tienda_activity.*
+import kotlinx.android.synthetic.main.activity_tienda.*
 
 
 class MainActivity : AppCompatActivity() {

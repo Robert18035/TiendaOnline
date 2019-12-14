@@ -17,7 +17,7 @@ class TiendaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.tienda_activity)
+        setContentView(R.layout.activity_tienda)
         mostrarProductos()
     }
 
@@ -51,8 +51,8 @@ class TiendaActivity : AppCompatActivity() {
 
                 Nombre.setText(model.getNombre())
                 Picasso.get().load(model.getImagenURL()).into(producto)
-                Talla.setText(model.getTalla())
-                Color.setText(model.getColor())
+                Talla.setText("Talla: "+model.getTalla())
+                Color.setText("Color: "+model.getColor())
             }
         }
         listaArticulos.adapter = adapter
