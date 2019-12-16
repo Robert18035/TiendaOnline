@@ -48,6 +48,8 @@ class PantalonesActivity : AppCompatActivity() {
                 val Talla: TextView
                 val Color: TextView
                 val Categoria: TextView
+                val Precio: TextView
+
 
 
                 Nombre = v.findViewById<View>(R.id.nombre) as TextView
@@ -55,12 +57,16 @@ class PantalonesActivity : AppCompatActivity() {
                 Talla = v.findViewById<View>(R.id.talla) as TextView
                 Color = v.findViewById<View>(R.id.color) as TextView
                 Categoria = v.findViewById<View>(R.id.categoria) as TextView
+                Precio = v.findViewById<View>(R.id.precio) as TextView
+
 
                 Nombre.setText(model.getNombre())
                 Picasso.get().load(model.getImagenURL()).into(producto)
                 Talla.setText("Talla: " + model.getTalla())
                 Color.setText("Color: " + model.getColor())
                 Categoria.setText("Categoria: " + model.getCategoria())
+                Precio.setText("Precio: $" + model.getPrecio())
+
             }
         }
         listaArticulos.adapter = adapter

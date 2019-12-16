@@ -6,16 +6,18 @@ class Producto {
     private var Talla: String? = null
     private var Color: String? = null
     private var Categoria: String? = null
+    private var Precio: Int? = null
 
     constructor() {}
 
 
-    constructor(ImagenURL: String?, Nombre: String?, Talla: String?, Color: String?, Categoria: String?) {
+    constructor(ImagenURL: String?, Nombre: String?, Talla: String?, Color: String?, Categoria: String?, Precio: Int?) {
         this.ImagenURL = ImagenURL
         this.Nombre = Nombre
         this.Talla = Talla
         this.Color = Color
         this.Categoria = Categoria
+        this.Precio = Precio
     }
 
 
@@ -48,5 +50,11 @@ class Producto {
     }
     fun setCategoria (Categoria: String?) {
         this.Categoria = Categoria
+    }
+    fun getPrecio(): Int? {
+        return Precio
+    }
+    fun setPrecio (Precio: Int?) {
+        this.Precio = Precio
     }
 }

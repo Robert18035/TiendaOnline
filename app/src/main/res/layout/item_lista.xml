@@ -65,4 +65,17 @@
         android:layout_marginEnd="35dp"
         android:layout_marginRight="100dp" />
 
+    <TextView
+        android:id="@+id/precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="100dp"
+        android:textColor="#2a2a2a"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>
