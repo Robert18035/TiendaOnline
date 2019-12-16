@@ -6,22 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".TiendaActivity">
 
-    <ImageView
-        android:id="@+id/anuncio1"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/anuncio1" />
-
     <ListView
         android:id="@+id/lista_articulos"
-        android:layout_alignParentTop="true"
-        android:dividerHeight="16dp"
-        android:layout_below="@id/anuncio1"
-        android:divider="@android:color/transparent"
-        android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="16dp"
         android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll">
-    </ListView>
+        android:transcriptMode="alwaysScroll"></ListView>
 </RelativeLayout>

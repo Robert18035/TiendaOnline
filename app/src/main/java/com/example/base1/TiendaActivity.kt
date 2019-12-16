@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.firebase.ui.database.FirebaseListAdapter
 import com.firebase.ui.database.FirebaseListOptions
 import com.google.firebase.database.FirebaseDatabase
@@ -23,16 +20,18 @@ class TiendaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tienda)
         mostrarProductos()
         //---------------------------------------------------------------------------------------
-// Este intent es para poder dar click en un elemento del list view, el Toast sólo regresa la posición que se presionó,
-        //por lo que sólo falta mandar la info a través de activities
-        lista_articulos.setOnItemClickListener { parent, view, position, id ->
 
-            Toast.makeText(this, "Artículo: $position", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, InfoArt_Activity::class.java) //cambiar esto Roberto
-            intent.putExtra("position", position)
-            this.startActivity(intent)
-        }
+        lista_articulos.onItemClickListener =
+            AdapterView.OnItemClickListener { parent: AdapterView<*>, v: View, position: Int, id: Long ->
+
+                val intent = Intent(this, InfoArt_Activity::class.java)
+                intent.putExtra("indice", position)
+                startActivity(intent)
+
+                //Toast.makeText(this,"$position",Toast.LENGTH_LONG).show()
+            }
     }
+
     //---------------------------------------------------------------------------------------
     //MOSTRAR PRODUCTOS EN EL LIST VIEW
     private fun mostrarProductos() {
