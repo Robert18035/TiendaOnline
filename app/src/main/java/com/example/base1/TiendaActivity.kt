@@ -23,12 +23,13 @@ class TiendaActivity : AppCompatActivity() {
 
         lista_articulos.onItemClickListener =
             AdapterView.OnItemClickListener { parent: AdapterView<*>, v: View, position: Int, id: Long ->
-
+                val nombre = adapter?.getItem(position)?.getNombre()
                 val intent = Intent(this, InfoArt_Activity::class.java)
-                intent.putExtra("indice", position)
+                intent.putExtra("nombre", nombre)
+                intent.putExtra("indice",position)
                 startActivity(intent)
 
-                //Toast.makeText(this,"$position",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"$nombre",Toast.LENGTH_LONG).show()
             }
     }
 
