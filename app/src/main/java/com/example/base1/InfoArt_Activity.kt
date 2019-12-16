@@ -23,6 +23,11 @@ class InfoArt_Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        inicioButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         //---------------------------------------------------------------------------------------
 
     }
