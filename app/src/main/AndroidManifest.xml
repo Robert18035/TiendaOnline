@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".InfoArt_Activity"></activity>
+        <activity android:name=".ChamarrasActivity" />
+        <activity android:name=".PantalonesActivity" />
+        <activity android:name=".CamisasActivity" />
         <activity
             android:name=".AboutActivity"
             android:screenOrientation="portrait" />
@@ -17,7 +21,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CategoriasActivity"
-            android:screenOrientation="portrait" />
+            android:label="@string/categories"
+            android:screenOrientation="portrait"
+            android:theme="@style/categoriasTheme" />
         <activity
             android:name=".TiendaActivity"
             android:screenOrientation="portrait" />
@@ -35,6 +41,8 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
+
+        <service android:name=".MusicService" />
     </application>
 
 </manifest>

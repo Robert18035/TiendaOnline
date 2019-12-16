@@ -1,36 +1,51 @@
 package com.example.base1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
 import com.firebase.ui.database.FirebaseListAdapter
 import com.firebase.ui.database.FirebaseListOptions
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_tienda.*
 
 class TiendaActivity : AppCompatActivity() {
     private var adapter: FirebaseListAdapter<Producto>? = null      //Adaptador
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tienda)
         mostrarProductos()
-    }
+        //---------------------------------------------------------------------------------------
+// Este intent es para poder dar click en un elemento del list view, el Toast sólo regresa la posición que se presionó,
+        //por lo que sólo falta mandar la info a través de activities
+        lista_articulos.setOnItemClickListener { parent, view, position, id ->
 
+            Toast.makeText(this, "Artículo: $position", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, InfoArt_Activity::class.java) //cambiar esto Roberto
+            intent.putExtra("position", position)
+            this.startActivity(intent)
+        }
+    }
+    //---------------------------------------------------------------------------------------
+    //MOSTRAR PRODUCTOS EN EL LIST VIEW
     private fun mostrarProductos() {
         val listaArticulos: ListView =
             findViewById(R.id.lista_articulos) as ListView
         val query: Query =
-            FirebaseDatabase.getInstance().reference.child("Productos")         //Accesa a la base de datos
-        val options: FirebaseListOptions<Producto> = FirebaseListOptions.Builder<Producto>()       //Objeto
-            .setLayout(R.layout.item_lista)
-            .setQuery(query, Producto::class.java)
-            .setLifecycleOwner(this)
-            .build();
+            FirebaseDatabase.getInstance()
+                .reference.child("Productos")         //Accesa a la base de datos
+        val options: FirebaseListOptions<Producto> =
+            FirebaseListOptions.Builder<Producto>()       //Objeto
+                .setLayout(R.layout.item_lista)
+                .setQuery(query, Producto::class.java)
+                .setLifecycleOwner(this)
+                .build();
         adapter = object : FirebaseListAdapter<Producto>(options) {
             override fun populateView(
                 v: View,
@@ -51,8 +66,8 @@ class TiendaActivity : AppCompatActivity() {
 
                 Nombre.setText(model.getNombre())
                 Picasso.get().load(model.getImagenURL()).into(producto)
-                Talla.setText("Talla: "+model.getTalla())
-                Color.setText("Color: "+model.getColor())
+                Talla.setText("Talla: " + model.getTalla())
+                Color.setText("Color: " + model.getColor())
             }
         }
         listaArticulos.adapter = adapter
