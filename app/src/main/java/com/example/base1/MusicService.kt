@@ -1,4 +1,4 @@
-package com.example.base1
+/*package com.example.base1
 
 import android.app.Service
 import android.content.Intent
@@ -34,4 +34,4 @@ class MusicService : Service() {
         player!!.stop()
     }
 
-}
+}*/

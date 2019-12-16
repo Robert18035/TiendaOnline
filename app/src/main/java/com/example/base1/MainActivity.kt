@@ -14,13 +14,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         /*-------------------------------------------------------------------------------*/
-        val intentMusicService = Intent(this, MusicService::class.java)
+        /*val intentMusicService = Intent(this, MusicService::class.java)
         try {
             stopService(intentMusicService)
         } catch (ex: Exception) {
             Toast.makeText(this, "Error al cargar la música.", Toast.LENGTH_SHORT).show()
         }
-        startService(intentMusicService)
+        startService(intentMusicService)*/
         /*-------------------------------------------------------------------------------*/
         var adaptador = ImageAdapter(this)
         gridView1.adapter = adaptador

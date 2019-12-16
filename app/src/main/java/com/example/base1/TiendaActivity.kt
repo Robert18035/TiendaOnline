@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_tienda.*
+import org.w3c.dom.Text
 
 class TiendaActivity : AppCompatActivity() {
     private var adapter: FirebaseListAdapter<Producto>? = null      //Adaptador
@@ -57,17 +58,20 @@ class TiendaActivity : AppCompatActivity() {
                 val Nombre: TextView
                 val Talla: TextView
                 val Color: TextView
+                val Categoria: TextView
 
 
                 Nombre = v.findViewById<View>(R.id.nombre) as TextView
                 producto = v.findViewById<View>(R.id.producto) as ImageView
                 Talla = v.findViewById<View>(R.id.talla) as TextView
                 Color = v.findViewById<View>(R.id.color) as TextView
+                Categoria = v.findViewById<View>(R.id.categoria) as TextView
 
                 Nombre.setText(model.getNombre())
                 Picasso.get().load(model.getImagenURL()).into(producto)
                 Talla.setText("Talla: " + model.getTalla())
                 Color.setText("Color: " + model.getColor())
+                Categoria.setText("Categoria: " + model.getCategoria())
             }
         }
         listaArticulos.adapter = adapter

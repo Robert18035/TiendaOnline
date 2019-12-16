@@ -5,15 +5,17 @@ class Producto {
     private var Nombre: String?= null
     private var Talla: String? = null
     private var Color: String? = null
+    private var Categoria: String? = null
 
     constructor() {}
 
 
-    constructor(ImagenURL: String?, Nombre: String?, Talla: String?, Color: String?) {
+    constructor(ImagenURL: String?, Nombre: String?, Talla: String?, Color: String?, Categoria: String?) {
         this.ImagenURL = ImagenURL
         this.Nombre = Nombre
         this.Talla = Talla
         this.Color = Color
+        this.Categoria = Categoria
     }
 
 
@@ -40,5 +42,11 @@ class Producto {
     }
     fun setColor (Color: String?) {
         this.Color = Color
+    }
+    fun getCategoria(): String? {
+        return Categoria
+    }
+    fun setCategoria (Categoria: String?) {
+        this.Categoria = Categoria
     }
 }
